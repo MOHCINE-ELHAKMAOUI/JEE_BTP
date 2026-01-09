@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import ma.fsts.agep_btp.entity.Devis;
 import ma.fsts.agep_btp.entity.Employe;
@@ -13,7 +14,6 @@ import ma.fsts.agep_btp.entity.Materiau;
 import ma.fsts.agep_btp.entity.ProjetConstruction;
 import ma.fsts.agep_btp.entity.RoleEmploye;
 import ma.fsts.agep_btp.entity.StatutProjet;
-// import ma.fsts.agep_btp.entity.Terrain;
 import ma.fsts.agep_btp.entity.TypeConstruction;
 import ma.fsts.agep_btp.repository.*;
 
@@ -29,10 +29,10 @@ public class AgepBtpApplication {
 	 @Bean
     CommandLineRunner initData(
             EmployeRepository employeRepository,
-            // TerrainRepository terrainRepository,
             MateriauRepository materiauRepository,
             ProjetConstructionRepository projetConstructionRepository,
-            DevisRepository devisRepository
+            DevisRepository devisRepository,
+            PasswordEncoder passwordEncoder
             
     ){
         return args -> {
@@ -42,26 +42,19 @@ public class AgepBtpApplication {
             e1.setNom("ingenieur1");
 			e1.setDisponible(true);
 			e1.setRole(RoleEmploye.INGENIEUR);
+            e1.setEmail("em1@btp.com");
+            e1.setMotDePasse(passwordEncoder.encode("1234"));
             
 			Employe e2 = new Employe();
             e2.setNom("ouvrier1");
 			e2.setDisponible(true);
 			e2.setRole(RoleEmploye.OUVRIER);
+            e2.setEmail("em2@btp.com");
+            e2.setMotDePasse(passwordEncoder.encode("1234"));
 
             employeRepository.save(e1);
             employeRepository.save(e2);
 
-            // ===== Terrain =====
-            // Terrain t1 = new Terrain();
-			// t1.setLocalisation("localisation1");
-			// t1.setSuperficie(100);
-            
-			// Terrain t2 = new Terrain();
-			// t2.setLocalisation("localisation2");
-			// t2.setSuperficie(100);
-            
-            // terrainRepository.save(t1);
-            // terrainRepository.save(t2);
 
             Materiau m1 = new Materiau();
             m1.setNom("CIMENT");
@@ -80,22 +73,22 @@ public class AgepBtpApplication {
             
             Materiau m3 = new Materiau();
             m3.setNom("GRAVIER");
-            m3.setPrixUnitaire(150);
-            m3.setUnite("unité");
+            m3.setPrixUnitaire(8);
+            m3.setUnite("kg");
 
             materiauRepository.save(m3);
             
             Materiau m4 = new Materiau();
             m4.setNom("BRIQUES");
-            m4.setPrixUnitaire(150);
+            m4.setPrixUnitaire(3);
             m4.setUnite("unité");
 
             materiauRepository.save(m4);
             
             Materiau m5 = new Materiau();
             m5.setNom("FER");
-            m5.setPrixUnitaire(150);
-            m5.setUnite("unité");
+            m5.setPrixUnitaire(30);
+            m5.setUnite("barre");
 
             materiauRepository.save(m5);
 

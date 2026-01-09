@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import ma.fsts.agep_btp.entity.Employe;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
 
 public interface EmployeService {
 
@@ -18,5 +19,7 @@ public interface EmployeService {
     Optional<Employe> findById(Long employeId);
 
     void save(Employe employe);
+    
+    List<ProjetConstruction> getProjetsByEmploye(Long employeId);
 
 }

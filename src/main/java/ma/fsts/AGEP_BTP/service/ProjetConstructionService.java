@@ -7,10 +7,7 @@ import ma.fsts.agep_btp.entity.ProjetConstruction;
 public interface ProjetConstructionService {
 
     ProjetConstruction creerProjet(ProjetConstruction projetConstruction);
-        // Long terrainId,
-                                //    TypeConstruction typeConstruction,
-                                //    double superficie);
-
+ 
     List<ProjetConstruction> listerProjets();
 
     ProjetConstruction getProjet(Long id);

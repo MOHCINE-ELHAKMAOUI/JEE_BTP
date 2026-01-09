@@ -8,6 +8,7 @@ import ma.fsts.agep_btp.entity.ProjetConstruction;
 public interface DevisService {
 
     Devis genererDevis(ProjetConstruction projet);
-
+    Devis genererDevis(Long projetId);
+    Devis getDevisByProjet(Long projetId);
     List<Devis> findAll();
 }

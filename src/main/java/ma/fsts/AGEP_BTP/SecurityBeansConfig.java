@@ -24,12 +24,10 @@ public class SecurityBeansConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/materiaux").permitAll()
                 .requestMatchers("/api/projets").permitAll()
-                // .requestMatchers("/api/terrains").permitAll()
                 .requestMatchers("/api/devis").permitAll()
-                .requestMatchers("/api/employes/*").permitAll()
-
-
-                    .anyRequest().authenticated()
+                .requestMatchers("/api/employes/**").permitAll()
+                .requestMatchers("/api/projets/*/employes/*").permitAll()
+                .anyRequest().permitAll()
             );
 
         return http.build();

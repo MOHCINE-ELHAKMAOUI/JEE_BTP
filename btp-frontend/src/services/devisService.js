@@ -1,15 +1,14 @@
 import api from "../api/axios";
 
-/**
- * Récupérer tous les devis
- */
+
 export const getDevis = () => {
     return api.get("/devis");
 };
 
-/**
- * Récupérer le devis d’un projet précis
- */
+export const genererDevis = (projetId) => {
+    return api.post(`/devis/projet/${projetId}`);
+};
+
 export const getDevisByProjet = (projetId) => {
     return api.get(`/devis/projet/${projetId}`);
 };

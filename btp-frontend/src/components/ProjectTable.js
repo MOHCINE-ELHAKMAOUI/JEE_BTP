@@ -57,8 +57,7 @@ function ProjetTable() {
                 <Link to={`/projets/${p.id}`}>
                   <button>Détails</button>
                 </Link>
-                {/* Optionnel : bouton supprimer */}
-                {/* <button onClick={() => deleteProjet(p.id)}>Supprimer</button> */}
+                
               </td>
             </tr>
           ))}

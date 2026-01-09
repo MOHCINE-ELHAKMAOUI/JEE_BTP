@@ -11,3 +11,7 @@ export const affecterEmploye = (employe) => {
 export const getEmployes = () => {
     return api.get("/employes/disponibles");
 };
+
+export const getProjetsByEmploye = (employeId) => {
+    return api.get(`/employes/${employeId}/projets`);
+};

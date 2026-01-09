@@ -2,6 +2,7 @@ package ma.fsts.agep_btp.cotroller;
 
 import lombok.RequiredArgsConstructor;
 import ma.fsts.agep_btp.entity.Employe;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
 import ma.fsts.agep_btp.service.EmployeService;
 
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +38,12 @@ public class EmployeController {
             @RequestParam Long employeId
     ) {
         employeService.affecterEmploye(projetId, employeId);
+    }
+
+    @GetMapping("/{employeId}/projets")
+    public List<ProjetConstruction> getProjetsByEmploye(
+            @PathVariable Long employeId
+    ) {
+        return employeService.getProjetsByEmploye(employeId);
     }
 }
