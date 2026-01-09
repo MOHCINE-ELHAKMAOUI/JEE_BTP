@@ -1,8 +1,8 @@
-package ma.fsts.AGEP_BTP.cotroller;
+package ma.fsts.agep_btp.cotroller;
 
 import lombok.RequiredArgsConstructor;
-import ma.fsts.AGEP_BTP.entity.Materiau;
-import ma.fsts.AGEP_BTP.repository.MateriauRepository;
+import ma.fsts.agep_btp.entity.Materiau;
+import ma.fsts.agep_btp.repository.MateriauRepository;
 
 import org.springframework.web.bind.annotation.*;
 

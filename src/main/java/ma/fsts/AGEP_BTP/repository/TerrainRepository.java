@@ -1,9 +1,9 @@
-package ma.fsts.AGEP_BTP.repository;
+package ma.fsts.agep_btp.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ma.fsts.AGEP_BTP.entity.Terrain;
+import ma.fsts.agep_btp.entity.Terrain;
 
 public interface TerrainRepository extends JpaRepository<Terrain, Long> {
 }

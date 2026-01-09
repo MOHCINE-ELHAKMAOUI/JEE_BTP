@@ -1,8 +1,8 @@
-package ma.fsts.AGEP_BTP.service;
+package ma.fsts.agep_btp.service;
 
 import java.util.List;
 
-import ma.fsts.AGEP_BTP.entity.Employe;
+import ma.fsts.agep_btp.entity.Employe;
 
 public interface EmployeService {
 

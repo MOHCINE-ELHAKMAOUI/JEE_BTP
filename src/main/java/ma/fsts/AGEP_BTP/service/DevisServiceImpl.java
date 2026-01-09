@@ -1,11 +1,11 @@
-package ma.fsts.AGEP_BTP.service;
+package ma.fsts.agep_btp.service;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import ma.fsts.AGEP_BTP.entity.Devis;
-import ma.fsts.AGEP_BTP.entity.ProjetConstruction;
-import ma.fsts.AGEP_BTP.repository.DevisRepository;
+import ma.fsts.agep_btp.entity.Devis;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
+import ma.fsts.agep_btp.repository.DevisRepository;
 
 import java.time.LocalDate;
 

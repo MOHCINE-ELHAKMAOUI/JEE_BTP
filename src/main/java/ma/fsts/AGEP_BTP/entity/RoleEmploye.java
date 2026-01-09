@@ -1,4 +1,4 @@
-package ma.fsts.AGEP_BTP.entity;
+package ma.fsts.agep_btp.entity;
 
 public enum RoleEmploye {
     INGENIEUR,

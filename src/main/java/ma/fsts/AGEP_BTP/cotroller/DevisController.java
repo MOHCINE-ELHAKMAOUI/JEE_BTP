@@ -1,10 +1,10 @@
-package ma.fsts.AGEP_BTP.cotroller;
+package ma.fsts.agep_btp.cotroller;
 
 import lombok.RequiredArgsConstructor;
-import ma.fsts.AGEP_BTP.entity.Devis;
-import ma.fsts.AGEP_BTP.entity.ProjetConstruction;
-import ma.fsts.AGEP_BTP.repository.ProjetConstructionRepository;
-import ma.fsts.AGEP_BTP.service.DevisService;
+import ma.fsts.agep_btp.entity.Devis;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
+import ma.fsts.agep_btp.repository.ProjetConstructionRepository;
+import ma.fsts.agep_btp.service.DevisService;
 
 import org.springframework.web.bind.annotation.*;
 

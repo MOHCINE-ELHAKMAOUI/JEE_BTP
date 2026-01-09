@@ -1,7 +1,7 @@
-package ma.fsts.AGEP_BTP.service;
+package ma.fsts.agep_btp.service;
 
-import ma.fsts.AGEP_BTP.entity.Devis;
-import ma.fsts.AGEP_BTP.entity.ProjetConstruction;
+import ma.fsts.agep_btp.entity.Devis;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
 
 public interface DevisService {
 

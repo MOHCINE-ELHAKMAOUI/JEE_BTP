@@ -1,12 +1,12 @@
-package ma.fsts.AGEP_BTP.service;
+package ma.fsts.agep_btp.service;
 
 import lombok.RequiredArgsConstructor;
-import ma.fsts.AGEP_BTP.entity.Materiau;
-import ma.fsts.AGEP_BTP.entity.ProjetConstruction;
-import ma.fsts.AGEP_BTP.entity.ProjetMateriau;
-import ma.fsts.AGEP_BTP.repository.MateriauRepository;
-import ma.fsts.AGEP_BTP.repository.ProjetConstructionRepository;
-import ma.fsts.AGEP_BTP.repository.ProjetMateriauRepository;
+import ma.fsts.agep_btp.entity.Materiau;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
+import ma.fsts.agep_btp.entity.ProjetMateriau;
+import ma.fsts.agep_btp.repository.MateriauRepository;
+import ma.fsts.agep_btp.repository.ProjetConstructionRepository;
+import ma.fsts.agep_btp.repository.ProjetMateriauRepository;
 
 import org.springframework.stereotype.Service;
 

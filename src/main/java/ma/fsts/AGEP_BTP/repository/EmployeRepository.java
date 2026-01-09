@@ -1,9 +1,9 @@
-package ma.fsts.AGEP_BTP.repository;
+package ma.fsts.agep_btp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ma.fsts.AGEP_BTP.entity.Employe;
-import ma.fsts.AGEP_BTP.entity.RoleEmploye;
+import ma.fsts.agep_btp.entity.Employe;
+import ma.fsts.agep_btp.entity.RoleEmploye;
 
 import java.util.List;
 

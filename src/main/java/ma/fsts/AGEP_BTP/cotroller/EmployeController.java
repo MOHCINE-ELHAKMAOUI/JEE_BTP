@@ -1,8 +1,8 @@
-package ma.fsts.AGEP_BTP.cotroller;
+package ma.fsts.agep_btp.cotroller;
 
 import lombok.RequiredArgsConstructor;
-import ma.fsts.AGEP_BTP.entity.Employe;
-import ma.fsts.AGEP_BTP.service.EmployeService;
+import ma.fsts.agep_btp.entity.Employe;
+import ma.fsts.agep_btp.service.EmployeService;
 
 import org.springframework.web.bind.annotation.*;
 

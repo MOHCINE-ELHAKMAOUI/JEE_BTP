@@ -1,9 +1,9 @@
-package ma.fsts.AGEP_BTP.repository;
+package ma.fsts.agep_btp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ma.fsts.AGEP_BTP.entity.Devis;
-import ma.fsts.AGEP_BTP.entity.ProjetConstruction;
+import ma.fsts.agep_btp.entity.Devis;
+import ma.fsts.agep_btp.entity.ProjetConstruction;
 
 import java.util.Optional;
 
