@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import EmployeeDashboard from "./components/EmployeeDashboard";
 import Navbar from "./components/Navbar";
+import DevisSearch from "./components/DevisSearch";
 import React, { useState } from "react";
 
 // Private Route Component for employee dashboard
@@ -29,6 +30,25 @@ function EmployeeRoute({ children }) {
 
 function MainDashboard() {
     const [projetActif, setProjetActif] = useState(null);
+    const [projetActifFromDevis, setProjetActifFromDevis] = useState(null);
+    
+    const handleDevisFound = (projetId) => {
+        if (projetId) {
+            // Set the project ID from devis search
+            setProjetActifFromDevis({ id: projetId });
+            // Also update projetActif if it's from devis search
+            setProjetActif({ id: projetId });
+        } else {
+            // Clear if devis search is cleared
+            setProjetActifFromDevis(null);
+            if (!projetActif) {
+                setProjetActif(null);
+            }
+        }
+    };
+    
+    // Use projetActifFromDevis if set, otherwise use projetActif from form
+    const activeProjetId = projetActifFromDevis?.id || projetActif?.id;
     
     return (
         <>
@@ -38,11 +58,16 @@ function MainDashboard() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div className="space-y-6">
-                        <ProjetForm onProjetCreated={setProjetActif} />
-                        <EmployeTable projetId={projetActif?.id} />
+                        <DevisSearch onDevisFound={handleDevisFound} />
+                        <ProjetForm onProjetCreated={(projet) => {
+                            setProjetActif(projet);
+                            // Clear devis search project if creating a new project
+                            setProjetActifFromDevis(null);
+                        }} />
+                        <EmployeTable projetId={activeProjetId} />
                     </div>
                     <div className="lg:col-span-2">
-                        <Dashboard projetId={projetActif?.id} />
+                        <Dashboard projetId={activeProjetId} />
                     </div>
                 </div>
             </div>

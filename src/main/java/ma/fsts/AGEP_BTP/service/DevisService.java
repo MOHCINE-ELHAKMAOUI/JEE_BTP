@@ -10,5 +10,6 @@ public interface DevisService {
     Devis genererDevis(ProjetConstruction projet);
     Devis genererDevis(Long projetId);
     Devis getDevisByProjet(Long projetId);
+    Devis getDevisById(Long id);
     List<Devis> findAll();
 }

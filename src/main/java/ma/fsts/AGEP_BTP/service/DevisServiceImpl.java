@@ -80,6 +80,32 @@ public class DevisServiceImpl implements DevisService {
     }
 
     @Override
+    public Devis getDevisById(Long id) {
+        Devis devis = devisRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Devis non trouvé avec l'ID: " + id));
+        
+        // Ensure the projet with employees is loaded
+        if (devis.getProjet() != null) {
+            Long projetId = devis.getProjet().getId();
+            ProjetConstruction projet = projetConstructionRepository.findById(projetId)
+                    .orElse(null);
+            if (projet != null) {
+                // Initialize employes list if null
+                if (projet.getEmployes() == null) {
+                    projet.setEmployes(new ArrayList<>());
+                } else {
+                    // Trigger lazy loading by accessing the list
+                    projet.getEmployes().size();
+                }
+                // Update devis with the loaded projet
+                devis.setProjet(projet);
+            }
+        }
+        
+        return devis;
+    }
+
+    @Override
     public List<Devis> findAll() {
         return devisRepository.findAll();
     }

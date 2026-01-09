@@ -38,6 +38,11 @@ public class DevisController {
         return devisService.genererDevis(projetId);
     }
 
+    @GetMapping("/{id}")
+    public Devis getById(@PathVariable Long id) {
+        return devisService.getDevisById(id);
+    }
+
     @GetMapping("/projet/{projetId}")
     public Devis getByProjet(@PathVariable Long projetId) {
         Devis devis = devisService.getDevisByProjet(projetId);

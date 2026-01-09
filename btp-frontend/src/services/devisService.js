@@ -12,3 +12,7 @@ export const genererDevis = (projetId) => {
 export const getDevisByProjet = (projetId) => {
     return api.get(`/devis/projet/${projetId}`);
 };
+
+export const getDevisById = (devisId) => {
+    return api.get(`/devis/${devisId}`);
+};
