@@ -26,8 +26,8 @@ public class ProjetConstruction {
     @Enumerated(EnumType.STRING)
     private StatutProjet statut;
 
-    @ManyToOne
-    private Terrain terrain;
+    // @ManyToOne
+    // private Terrain terrain;
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
     private List<ProjetMateriau> materiaux;

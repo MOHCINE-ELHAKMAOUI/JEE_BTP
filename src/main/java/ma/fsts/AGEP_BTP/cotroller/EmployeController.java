@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employes")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 public class EmployeController {
 
@@ -20,6 +21,10 @@ public class EmployeController {
         return employeService.ajouterEmploye(employe);
     }
 
+     @GetMapping
+    public List<Employe> getAll() {
+        return employeService.findAll();
+    }
 
     @GetMapping("/disponibles")
     public List<Employe> getEmployesDisponibles() {

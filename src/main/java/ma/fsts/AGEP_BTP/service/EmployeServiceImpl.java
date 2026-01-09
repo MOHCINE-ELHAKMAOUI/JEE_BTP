@@ -9,6 +9,7 @@ import ma.fsts.agep_btp.repository.ProjetConstructionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -41,6 +42,23 @@ public class EmployeServiceImpl implements EmployeService {
         employe.setDisponible(false);
 
         projetRepository.save(projet);
+        employeRepository.save(employe);
+    }
+
+    @Override
+    public List<Employe> findAll() {
+
+        return employeRepository.findAll();
+    }
+
+    @Override
+    public Optional<Employe> findById(Long employeId) {
+        
+        return employeRepository.findById(employeId);
+    }
+
+    @Override
+    public void save(Employe employe) {
         employeRepository.save(employe);
     }
 }

@@ -8,6 +8,7 @@ import ma.fsts.agep_btp.entity.ProjetConstruction;
 import ma.fsts.agep_btp.repository.DevisRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +25,10 @@ public class DevisServiceImpl implements DevisService {
         devis.setMontantTotal(projet.getCoutTotal());
 
         return devisRepository.save(devis);
+    }
+
+    @Override
+    public List<Devis> findAll() {
+        return devisRepository.findAll();
     }
 }
