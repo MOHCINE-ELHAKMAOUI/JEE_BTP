@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDevisByProjet } from "../services/devisService";
+import MateriauTable from "./MateriauTable";
 
 export default function DevisCard({ projetId }) {
     const [devis, setDevis] = useState(null);
@@ -39,10 +40,8 @@ export default function DevisCard({ projetId }) {
 
     useEffect(() => {
         fetchDevis();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [projetId]);
 
-    // Refresh when employee is assigned
     useEffect(() => {
         const handleRefresh = () => {
             setTimeout(() => {
@@ -52,7 +51,6 @@ export default function DevisCard({ projetId }) {
         
         window.addEventListener('employeeAssigned', handleRefresh);
         return () => window.removeEventListener('employeeAssigned', handleRefresh);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [projetId]);
 
     if (!projetId) {
@@ -88,6 +86,7 @@ export default function DevisCard({ projetId }) {
     }
 
     const employes = devis.projet?.employes || [];
+    const materiaux = devis.projet?.materiaux || [];
 
     return (
         <div className="bg-white p-4 rounded shadow mt-4">
@@ -105,6 +104,12 @@ export default function DevisCard({ projetId }) {
                 </p>
             </div>
 
+            {/* Materials Table */}
+            <div className="mt-4 border-t pt-4">
+                <MateriauTable materiaux={materiaux} />
+            </div>
+
+            {/* Employees Table */}
             <div className="mt-4 border-t pt-4">
                 <h3 className="text-lg font-semibold mb-3">Employés affectés au projet</h3>
                 {employes.length === 0 ? (

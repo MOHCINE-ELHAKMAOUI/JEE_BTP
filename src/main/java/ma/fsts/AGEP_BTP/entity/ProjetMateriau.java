@@ -2,6 +2,7 @@ package ma.fsts.agep_btp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Getter
@@ -15,6 +16,7 @@ public class ProjetMateriau {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private ProjetConstruction projet;
 
     @ManyToOne

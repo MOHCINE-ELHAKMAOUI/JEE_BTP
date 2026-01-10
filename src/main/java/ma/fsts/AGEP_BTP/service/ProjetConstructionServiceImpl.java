@@ -4,7 +4,9 @@ import lombok.RequiredArgsConstructor;
 import ma.fsts.agep_btp.entity.Devis;
 import ma.fsts.agep_btp.entity.Employe;
 import ma.fsts.agep_btp.entity.ProjetConstruction;
+import ma.fsts.agep_btp.entity.ProjetMateriau;
 import ma.fsts.agep_btp.repository.ProjetConstructionRepository;
+import ma.fsts.agep_btp.repository.ProjetMateriauRepository;
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ public class ProjetConstructionServiceImpl implements ProjetConstructionService 
     private final EstimationService estimationService;
     private final EmployeService employeService;
     private final DevisService devisService;
+    private final ProjetMateriauRepository projetMateriauRepository;
 
     @Override
     public ProjetConstruction creerProjet(ProjetConstruction projet){
@@ -52,6 +55,10 @@ public class ProjetConstructionServiceImpl implements ProjetConstructionService 
         if (projet.getEmployes() != null) {
             projet.getEmployes().size();
         }
+        
+        // Explicitly load materiaux using repository with materiau entity
+        List<ProjetMateriau> materiaux = projetMateriauRepository.findByProjetIdWithMateriau(id);
+        projet.setMateriaux(materiaux != null ? materiaux : new ArrayList<>());
         
         return projet;
     }

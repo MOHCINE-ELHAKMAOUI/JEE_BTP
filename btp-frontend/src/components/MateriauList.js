@@ -24,7 +24,7 @@ export default function MateriauList() {
 
     return (
         <div className="bg-white p-4 rounded shadow">
-            <h2 className="text-xl font-bold mb-4">Liste des matériaux</h2>
+            <h2 className="text-xl font-bold mb-4">Liste des prix matériaux</h2>
 
             <table className="w-full border">
                 <thead className="bg-gray-200">

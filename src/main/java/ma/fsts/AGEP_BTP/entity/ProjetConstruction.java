@@ -37,7 +37,7 @@ public class ProjetConstruction {
     // private Terrain terrain;
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonIgnoreProperties({"projet"}) // Prevent circular reference but allow materiaux to be serialized
     private List<ProjetMateriau> materiaux;
 
     @ManyToMany
