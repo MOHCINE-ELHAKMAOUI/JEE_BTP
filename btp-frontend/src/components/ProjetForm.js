@@ -72,7 +72,7 @@ function ProjetForm({ onProjetCreated }) {
                     >
                         <option value="EN_COURS">En cours</option>
                         <option value="TERMINE">Terminé</option>
-                        <option value="PLANIFIE">Planifié</option>
+
                     </select>
                 </div>
 
