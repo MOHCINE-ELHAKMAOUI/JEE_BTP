@@ -19,6 +19,11 @@ export default function LoginForm() {
         try {
             const response = await login(formData.email, formData.motDePasse);
             
+            // Store JWT token
+            if (response.data.token) {
+                localStorage.setItem("token", response.data.token);
+            }
+            
             // Store user info in localStorage
             localStorage.setItem("user", JSON.stringify({
                 id: response.data.id,

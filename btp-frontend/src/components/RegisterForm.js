@@ -21,6 +21,11 @@ export default function RegisterForm() {
         try {
             const response = await register(formData);
             
+            // Store JWT token
+            if (response.data.token) {
+                localStorage.setItem("token", response.data.token);
+            }
+            
             // Store user info in localStorage
             localStorage.setItem("user", JSON.stringify({
                 id: response.data.id,

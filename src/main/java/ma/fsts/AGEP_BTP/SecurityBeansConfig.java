@@ -1,14 +1,23 @@
 package ma.fsts.agep_btp;
 
+import lombok.RequiredArgsConstructor;
+import ma.fsts.agep_btp.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityBeansConfig {
+
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -19,6 +28,7 @@ public class SecurityBeansConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/devis/projet/*").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
@@ -28,9 +38,9 @@ public class SecurityBeansConfig {
                 .requestMatchers("/api/employes/**").permitAll()
                 .requestMatchers("/api/projets/*/employes/*").permitAll()
                 .anyRequest().permitAll()
-            );
+            )
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
-}
-
+    }
 }

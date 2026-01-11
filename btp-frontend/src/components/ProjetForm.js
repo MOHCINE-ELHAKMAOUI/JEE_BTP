@@ -46,6 +46,7 @@ function ProjetForm({ onProjetCreated }) {
                         <option value="MAISON">Maison</option>
                         <option value="VILLA">Villa</option>
                         <option value="R_PLUS_1">R+1</option>
+                        <option value="R_PLUS_2">R+2</option>
                         <option value="IMMEUBLE">Immeuble</option>
                     </select>
                 </div>
@@ -72,7 +73,7 @@ function ProjetForm({ onProjetCreated }) {
                     >
                         <option value="EN_COURS">En cours</option>
                         <option value="TERMINE">Terminé</option>
-                        <option value="PLANIFIE">Planifié</option>
+                        {/* <option value="PLANIFIE">Planifié</option> */}
                     </select>
                 </div>
 

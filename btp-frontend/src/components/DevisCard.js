@@ -91,7 +91,7 @@ export default function DevisCard({ projetId }) {
     return (
         <div className="bg-white p-4 rounded shadow mt-4">
             <h2 className="text-xl font-bold mb-4">
-                Devis du projet #{devis.projet?.id || projetId}
+                Devis #{devis.id || 'N/A'} du projet #{devis.projet?.id || projetId}
             </h2>
 
             <div className="mb-4">
