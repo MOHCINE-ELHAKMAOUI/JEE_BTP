@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Getter
 @Setter
@@ -18,12 +20,17 @@ public class Employe {
 
     private String nom;
 
+    private String email;
+
+    private String motDePasse;
+
     @Enumerated(EnumType.STRING)
     private RoleEmploye role;
 
     private boolean disponible;
 
     @ManyToMany(mappedBy = "employes")
+    @JsonIgnore
     private List<ProjetConstruction> projets;
 }
 

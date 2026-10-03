@@ -32,5 +32,9 @@ build/
 ### VS Code ###
 .vscode/
 
-# Frontend
-btp-frontend/node_modules/
+# Frontend and Node dependencies
+
+node_modules/
+dist/
+.env
+.env.local

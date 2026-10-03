@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/materiaux")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class MateriauController {
 
     private final MateriauRepository materiauRepository;

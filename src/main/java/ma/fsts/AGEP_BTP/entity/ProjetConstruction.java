@@ -5,6 +5,9 @@ import lombok.*;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Getter
 @Setter
@@ -26,10 +29,15 @@ public class ProjetConstruction {
     @Enumerated(EnumType.STRING)
     private StatutProjet statut;
 
-    @ManyToOne
-    private Terrain terrain;
+    @OneToOne
+    @JsonIgnore
+    private Devis devis;
+
+    // @ManyToOne
+    // private Terrain terrain;
 
     @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"projet"}) // Prevent circular reference but allow materiaux to be serialized
     private List<ProjetMateriau> materiaux;
 
     @ManyToMany
@@ -38,6 +46,7 @@ public class ProjetConstruction {
         joinColumns = @JoinColumn(name = "projet_id"),
         inverseJoinColumns = @JoinColumn(name = "employe_id")
     )
+    @JsonIgnoreProperties({"projets", "motDePasse"}) // Prevent circular reference and hide sensitive data
     private List<Employe> employes;
 }
 

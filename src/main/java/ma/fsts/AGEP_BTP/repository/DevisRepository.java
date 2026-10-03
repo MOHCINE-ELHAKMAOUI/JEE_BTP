@@ -10,4 +10,7 @@ import java.util.Optional;
 public interface DevisRepository extends JpaRepository<Devis, Long> {
 
     Optional<Devis> findByProjet(ProjetConstruction projet);
+
+    Optional<Devis> findByProjetId(Long projetId);
+
 }

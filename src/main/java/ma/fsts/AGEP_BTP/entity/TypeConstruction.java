@@ -5,5 +5,6 @@ public enum TypeConstruction {
     VILLA,
     RDC,
     R_PLUS_1,
-    R_PLUS_2
+    R_PLUS_2,
+    IMMEUBLE
 }
